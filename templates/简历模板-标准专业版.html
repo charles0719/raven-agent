@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>{{姓名}} - {{目标职位}}</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #222;
+    background: #f0f0f0;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 24px auto;
+    background: #fff;
+    padding: 36px 44px 48px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 0;
+  }
+
+  .name-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0A3F74;
+    letter-spacing: 4px;
+    margin-bottom: 6px;
+  }
+
+  .job-title {
+    font-size: 14px;
+    color: #444;
+    letter-spacing: 1px;
+  }
+
+  .info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 32px;
+    font-size: 13px;
+    color: #333;
+    line-height: 2;
+  }
+
+  .info-row .info-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .info-row a {
+    color: #0A3F74;
+    text-decoration: none;
+  }
+
+  .section {
+    margin-bottom: 22px;
+  }
+
+  .section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0A3F74;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid #0A3F74;
+    margin-bottom: 12px;
+  }
+
+  .plain-text {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.75;
+  }
+
+  .text-list,
+  .job ul,
+  .project ul {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .text-list li,
+  .job ul li,
+  .project ul li {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.7;
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .text-list li::before,
+  .job ul li::before,
+  .project ul li::before {
+    content: '◇';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #000;
+    font-size: 13px;
+    font-weight: normal;
+  }
+
+  .job,
+  .project {
+    margin-bottom: 16px;
+    page-break-inside: avoid;
+  }
+
+  .job:last-child,
+  .project:last-child {
+    margin-bottom: 0;
+  }
+
+  .job-header,
+  .project-header,
+  .edu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+
+  .job-main,
+  .project-name,
+  .edu-school {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0A3F74;
+  }
+
+  .job-period,
+  .project-period,
+  .edu-period {
+    font-size: 12.5px;
+    color: #0A3F74;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  .project-stack {
+    font-size: 12.5px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+
+  .project-stack span {
+    font-weight: 700;
+    color: #0A3F74;
+  }
+
+  .project-desc {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 6px;
+    line-height: 1.65;
+  }
+
+  .edu-major {
+    font-size: 13px;
+    color: #555;
+    margin-top: 2px;
+  }
+
+  .edu-right {
+    text-align: right;
+  }
+
+  .edu-degree {
+    font-size: 13px;
+    color: #0A3F74;
+    font-weight: 600;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; width: 100%; }
+  }
+
+  @page { size: A4; margin: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="header-top">
+      <div class="name-block">
+        <div class="name">{{姓名}}</div>
+        <div class="job-title">{{目标职位}}</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-title">基本信息</div>
+    <div class="info-row">
+      <div class="info-item">手机：{{手机号}}</div>
+      <div class="info-item">邮箱：<a href="mailto:{{邮箱}}">{{邮箱}}</a></div>
+      <div class="info-item">GitHub：<a href="{{GitHub链接}}">{{GitHub展示}}</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">期望职位</div>
+    <p class="plain-text">{{期望职位}} {{期望城市}} {{期望薪资}}</p>
+  </section>
+
+  <section class="section">
+    <div class="section-title">技能清单</div>
+    <ol class="text-list">
+      <li>{{技能点1}}</li>
+      <li>{{技能点2}}</li>
+      <li>{{技能点3}}</li>
+      <li>{{技能点4}}</li>
+      <li>{{技能点5}}</li>
+      <li>{{技能点6}}</li>
+      <li>{{技能点7}}</li>
+      <li>{{技能点8}}</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <div class="section-title">工作经历</div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-main">{{公司名称1}} ｜ {{职位1}}</div>
+        <div class="job-period">{{时间1}}</div>
+      </div>
+      <ul>
+        <li>{{工作描述1-1}}</li>
+        <li>{{工作描述1-2}}</li>
+        <li>{{工作描述1-3}}</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-main">{{公司名称2}} ｜ {{职位2}}</div>
+        <div class="job-period">{{时间2}}</div>
+      </div>
+      <ul>
+        <li>{{工作描述2-1}}</li>
+        <li>{{工作描述2-2}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">项目经历</div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-name">{{项目名称1}}</div>
+        <div class="project-period">{{项目时间1}}</div>
+      </div>
+      <div class="project-stack"><span>技术选型：</span>{{项目技术栈1}}</div>
+      <p class="project-desc">{{项目描述1}}</p>
+      <ul>
+        <li>{{项目职责1-1}}</li>
+        <li>{{项目职责1-2}}</li>
+        <li>{{项目职责1-3}}</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-name">{{项目名称2}}</div>
+        <div class="project-period">{{项目时间2}}</div>
+      </div>
+      <div class="project-stack"><span>技术选型：</span>{{项目技术栈2}}</div>
+      <p class="project-desc">{{项目描述2}}</p>
+      <ul>
+        <li>{{项目职责2-1}}</li>
+        <li>{{项目职责2-2}}</li>
+        <li>{{项目职责2-3}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">教育背景</div>
+    <div class="edu-item">
+      <div class="edu-left">
+        <div class="edu-school">{{学校}}</div>
+        <div class="edu-major">{{专业}} ｜ {{学历说明}}</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-degree">{{学历}}</div>
+        <div class="edu-period">{{在校时间}}</div>
+      </div>
+    </div>
+    <p class="plain-text" style="margin-top: 10px;">{{补充说明，可选}}</p>
+  </section>
+
+</div>
+</body>
+</html>

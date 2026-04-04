@@ -1,0 +1,14 @@
+{
+  "name": "raven-agent",
+  "description": "A Claude Code plugin marketplace — a collection of practical utility skills.",
+  "owner": {
+    "name": "charles0719"
+  },
+  "plugins": [
+    {
+      "name": "utility-tools",
+      "description": "Practical utility skills including resume Markdown-to-PDF conversion with professional HTML templates.",
+      "source": "./plugins/utility-tools"
+    }
+  ]
+}

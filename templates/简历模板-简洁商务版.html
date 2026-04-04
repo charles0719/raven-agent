@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>{{姓名}} - {{应聘岗位}}</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    color: #333;
+    background: #f3f5f7;
+    font-size: 13.5px;
+    line-height: 1.75;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 18px auto;
+    padding: 34px 40px 42px;
+    background: #fff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .name {
+    font-size: 30px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+  }
+
+  .job-target {
+    font-size: 14px;
+    color: #3b4e6d;
+    font-weight: 600;
+  }
+
+  .basic-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    margin-top: 10px;
+    color: #475569;
+    font-size: 12.5px;
+  }
+
+  .basic-info a {
+    color: #3b4e6d;
+    text-decoration: none;
+  }
+
+  .section {
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3b4e6d;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+    border-bottom: 4px solid #e0e0e0;
+    position: relative;
+    letter-spacing: 1px;
+  }
+
+  .section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 90px;
+    height: 4px;
+    background-color: #3b4e6d;
+  }
+
+  .list {
+    padding-left: 0;
+    list-style: none;
+    color: #333;
+  }
+
+  .list li {
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #3b4e6d;
+    font-size: 12px;
+    transform: scale(0.85);
+  }
+
+  .entry {
+    margin-bottom: 14px;
+  }
+
+  .entry:last-child {
+    margin-bottom: 0;
+  }
+
+  /* 基础左右分布（用于项目经历等） */
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+
+  /* 三列分布（用于工作经历的时间、公司、岗位） */
+  .entry-header.three-col {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .entry-header.three-col > div {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 700;
+    color: #3b4e6d;
+  }
+  .entry-header.three-col .entry-period { text-align: left; }
+  .entry-header.three-col .entry-title { text-align: center; }
+  .entry-header.three-col .entry-subtitle { text-align: right; margin: 0; }
+
+  .entry-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3b4e6d;
+  }
+
+  .entry-period {
+    font-size: 13px;
+    color: #3b4e6d;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  .entry-subtitle {
+    font-size: 13.5px;
+    color: #3b4e6d;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .entry-desc {
+    color: #475569;
+    margin-bottom: 6px;
+  }
+
+  .note {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 8px;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      margin: 0;
+      width: 100%;
+      box-shadow: none;
+    }
+  }
+
+  @page { size: A4; margin: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <div class="name">{{姓名}}</div>
+    <div class="job-target">应聘岗位：{{应聘岗位}}</div>
+    <div class="basic-info">
+      <div>联系电话：{{联系电话}}</div>
+      <div>电子邮箱：<a href="mailto:{{电子邮箱}}">{{电子邮箱}}</a></div>
+      <div>现居住地：{{现居住地}}</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-title">技能清单</div>
+    <ul class="list">
+      <li>{{技能点1}}</li>
+      <li>{{技能点2}}</li>
+      <li>{{技能点3}}</li>
+      <li>{{技能点4}}</li>
+      <li>{{技能点5}}</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="section-title">工作经历</div>
+
+    <div class="entry">
+      <div class="entry-header three-col">
+        <div class="entry-period">{{工作时间1}}</div>
+        <div class="entry-title">{{公司名称1}}</div>
+        <div class="entry-subtitle">{{岗位1}}</div>
+      </div>
+      <ul class="list">
+        <li>{{工作内容1-1}}</li>
+        <li>{{工作内容1-2}}</li>
+        <li>{{工作内容1-3}}</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header three-col">
+        <div class="entry-period">{{工作时间2}}</div>
+        <div class="entry-title">{{公司名称2}}</div>
+        <div class="entry-subtitle">{{岗位2}}</div>
+      </div>
+      <ul class="list">
+        <li>{{工作内容2-1}}</li>
+        <li>{{工作内容2-2}}</li>
+        <li>{{工作内容2-3}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">项目经历</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">{{项目名称1}}</div>
+        <div class="entry-period">{{项目时间1}}</div>
+      </div>
+      <div class="entry-desc">{{项目简介1}}</div>
+      <ul class="list">
+        <li>{{项目内容1-1}}</li>
+        <li>{{项目内容1-2}}</li>
+        <li>{{项目内容1-3}}</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">{{项目名称2}}</div>
+        <div class="entry-period">{{项目时间2}}</div>
+      </div>
+      <div class="entry-desc">{{项目简介2}}</div>
+      <ul class="list">
+        <li>{{项目内容2-1}}</li>
+        <li>{{项目内容2-2}}</li>
+        <li>{{项目内容2-3}}</li>
+      </ul>
+    </div>
+
+    <div class="note">如需增加项目，可复制上方 `entry` 区块继续追加。</div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">教育背景</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">{{学校}}</div>
+        <div class="entry-period">{{在校时间}}</div>
+      </div>
+      <div class="entry-subtitle">{{专业}} / {{学历}}</div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

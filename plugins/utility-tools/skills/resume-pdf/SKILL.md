@@ -16,12 +16,28 @@ The user has a structured Markdown resume and wants to generate a PDF file. The 
 - Preview the generated HTML before PDF output
 - Customize the output path
 
+## Skill directory
+
+This skill is self-contained. All resources (scripts, templates, examples) are located relative to this SKILL.md file:
+
+```
+resume-pdf/
+├── SKILL.md              ← this file
+├── scripts/md2pdf.mjs    ← conversion engine
+├── scripts/package.json  ← dependencies (puppeteer-core)
+├── templates/            ← HTML templates
+├── examples/             ← example resume
+└── references/           ← format documentation
+```
+
+Use the directory containing this SKILL.md as `<skill-dir>` in the commands below.
+
 ## Prerequisites
 
 Before running the conversion script, ensure dependencies are installed:
 
 ```bash
-cd <project-root>/scripts && [ -d node_modules ] || npm install && cd -
+cd <skill-dir>/scripts && [ -d node_modules ] || npm install && cd -
 ```
 
 The system must have **Google Chrome** or **Chromium** installed. The script auto-detects the browser path across macOS, Windows, and Linux.
@@ -34,8 +50,8 @@ Ask the user for:
 
 1. **Resume file path** (required) — Path to the Markdown resume file
 2. **Template** (optional) — Which template to use:
-   - `templates/简历模板-标准专业版.html` — Standard Professional (navy blue, centered header, formal) **[default]**
-   - `templates/简历模板-简洁商务版.html` — Clean Business (modern, three-column work experience layout)
+   - `<skill-dir>/templates/简历模板-标准专业版.html` — Standard Professional (navy blue, centered header, formal) **[default]**
+   - `<skill-dir>/templates/简历模板-简洁商务版.html` — Clean Business (modern, three-column work experience layout)
 3. **Output path** (optional) — Where to save the PDF. Defaults to same directory as input file.
 
 ### Step 2: Run the conversion
@@ -43,20 +59,20 @@ Ask the user for:
 Execute the conversion script:
 
 ```bash
-node <project-root>/scripts/md2pdf.mjs <resume.md> [--template <template.html>] [--output <output.pdf>]
+node <skill-dir>/scripts/md2pdf.mjs <resume.md> [--template <template.html>] [--output <output.pdf>]
 ```
 
 **Examples:**
 
 ```bash
-# Default template
-node scripts/md2pdf.mjs my-resume.md
+# Default template (auto-detected from script location)
+node <skill-dir>/scripts/md2pdf.mjs my-resume.md
 
 # Business template
-node scripts/md2pdf.mjs my-resume.md --template templates/简历模板-简洁商务版.html
+node <skill-dir>/scripts/md2pdf.mjs my-resume.md --template <skill-dir>/templates/简历模板-简洁商务版.html
 
 # Custom output path
-node scripts/md2pdf.mjs my-resume.md --output ~/Desktop/resume.pdf
+node <skill-dir>/scripts/md2pdf.mjs my-resume.md --output ~/Desktop/resume.pdf
 ```
 
 ### Step 3: Report results
@@ -73,7 +89,7 @@ Common issues and fixes:
 
 | Error | Cause | Fix |
 |---|---|---|
-| `Cannot find package 'puppeteer-core'` | Dependencies not installed | Run `npm install` in `scripts/` directory |
+| `Cannot find package 'puppeteer-core'` | Dependencies not installed | Run `npm install` in `<skill-dir>/scripts/` |
 | `Chrome/Chromium not found` | No browser installed | Install Chrome: `brew install --cask google-chrome` (macOS) / `apt install google-chrome-stable` (Linux) |
 | `Could not find expected browser` | Puppeteer can't locate Chrome | Check Chrome installation path |
 
@@ -86,24 +102,25 @@ The Markdown resume must follow this structure. See `references/md-format.md` fo
 
 Contact info line (phone, email, GitHub)
 
-## Skills section heading
+## 技能清单
 1. Skill item 1
 2. Skill item 2
 
-## Target position heading
+## 期望职位
 Position City Salary
 
-## Work experience heading
-### Period Company Role
+## 工作经历
+### YYYY/MM - YYYY/MM Company Role
 - Description bullet
 
-## Project experience heading
-### Period Project Name
-Tech stack line
-Project description
-Responsibility bullets
+## 项目经历
+### YYYY/MM - YYYY/MM Project Name
+技术选型：Tech stack
+项目描述：Project description
+责任描述：
+- Responsibility bullet
 
-## Education heading
+## 教育背景
 School / Major / Degree / Period
 ```
 

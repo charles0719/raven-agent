@@ -26,14 +26,14 @@ Claude Code 插件市场 — 一系列实用工具技能集。
 
 ```bash
 git clone https://github.com/charles0719/raven-agent.git
-cd raven-agent/scripts
+cd raven-agent/plugins/utility-tools/skills/resume-pdf/scripts
 npm install
 ```
 
 运行简历转换：
 
 ```bash
-node scripts/md2pdf.mjs <简历.md> [--template <模板.html>] [--output <输出.pdf>]
+node plugins/utility-tools/skills/resume-pdf/scripts/md2pdf.mjs <简历.md> [--template <模板.html>] [--output <输出.pdf>]
 ```
 
 ## 环境要求
@@ -95,7 +95,7 @@ node scripts/md2pdf.mjs <简历.md> [--template <模板.html>] [--output <输出
 学校 / 专业 / 学历 / 年份
 ```
 
-完整示例请参考 [examples/example-resume.md](examples/example-resume.md)。
+完整示例请参考 [examples/example-resume.md](plugins/utility-tools/skills/resume-pdf/examples/example-resume.md)。
 
 ## 工作原理
 

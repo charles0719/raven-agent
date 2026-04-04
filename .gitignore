@@ -43,4 +43,4 @@ pnpm-lock.yaml
 # Generated output (users generate their own)
 *.pdf
 *.html
-!templates/*.html
+!**/templates/*.html

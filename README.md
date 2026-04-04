@@ -26,14 +26,14 @@ Clone the repo and install dependencies:
 
 ```bash
 git clone https://github.com/charles0719/raven-agent.git
-cd raven-agent/scripts
+cd raven-agent/plugins/utility-tools/skills/resume-pdf/scripts
 npm install
 ```
 
 Run the resume conversion:
 
 ```bash
-node scripts/md2pdf.mjs <resume.md> [--template <template.html>] [--output <output.pdf>]
+node plugins/utility-tools/skills/resume-pdf/scripts/md2pdf.mjs <resume.md> [--template <template.html>] [--output <output.pdf>]
 ```
 
 ## Prerequisites
@@ -44,7 +44,7 @@ Before using this plugin, make sure the following are installed on your system:
 |---|---|---|
 | **Node.js** | >= 18 | [nodejs.org](https://nodejs.org/) |
 | **Google Chrome** or **Chromium** | Any recent version | See below |
-| **puppeteer-core** | Auto-installed | `cd scripts && npm install` |
+| **puppeteer-core** | Auto-installed | `cd plugins/utility-tools/skills/resume-pdf/scripts && npm install` |
 
 ### Chrome / Chromium installation
 
@@ -95,7 +95,7 @@ Position City Salary
 School / Major / Degree / Period
 ```
 
-See [examples/example-resume.md](examples/example-resume.md) for a complete example.
+See [examples/example-resume.md](plugins/utility-tools/skills/resume-pdf/examples/example-resume.md) for a complete example.
 
 ## How it works
 

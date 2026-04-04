@@ -94,6 +94,11 @@ The conversion script parses Markdown resumes with a specific structure. This do
 - Major (matched between `｜` or `|` delimiters)
 - Degree: `本科`, `硕士`, `博士`, or `大专`
 - Period: `YYYY - YYYY` format
+- Optional supplementary line: a short sentence summarizing academic strengths. **Must match the actual major** — e.g.:
+  - 计算机科学/软件工程/网络工程 → `具备扎实的计算机基础，熟悉常用数据结构与算法。`
+  - 通信工程/电子信息 → `具备扎实的通信与信号处理基础，熟悉网络协议与嵌入式系统开发。`
+  - 机械工程/自动化 → `具备扎实的工科逻辑，能深度理解制造工艺、研发逻辑及技术演进路线。`
+  - Do NOT use manufacturing/industrial descriptions (制造工艺、研发逻辑、技术演进路线) for IT-related majors.
 
 ## Section heading requirements
 
